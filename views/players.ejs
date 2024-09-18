@@ -1,0 +1,43 @@
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <!--
+            Font
+        -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Freeman&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="more.css" />
+        <title>Players</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <h1 class="heading">Athletes</h1>
+        <div class="content-wrapper">
+            <div class="listContainer">
+                <ul>
+                    <% players.forEach(player => { %>
+                        <li class="list"><%= player.name %>
+                            <ul>
+                                <% player.sports.forEach(sport => { %>
+                                    <li class="innerlist"><%= sport.name %>: wins - <%= sport.wins %>, losses - <%= sport.losses %></li>
+                                <% }); %>
+                            </ul>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+            <h2 class ="heading">Add a new athlete</h2>
+            <div class="create-player">
+                <form action="/players" method="POST">
+                <label id="labelName" for="name">Enter their name:</label>
+                <input type="text" id="name" name="name" required>
+                <button id ="labelBut">Submit</button>
+                </form>
+            
+            </div>
+        </div>
+    </body>
+</html>

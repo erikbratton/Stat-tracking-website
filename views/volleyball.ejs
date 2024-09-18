@@ -1,0 +1,94 @@
+
+<html>
+    <meta charset="UTF-8">
+    <head>
+        <!--
+            Font
+        -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Freeman&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="more.css" />
+        <link rel="stylesheet" href="morer.css" />
+        <title>Volleyball</title>
+    </head>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <h1 class="heading">Volleyball Stats</h1>
+        <div class="listContainer">
+            <ul>
+                <% players.forEach(player => { %>
+                    <li class="list"><%= player.name %>
+                        <ul>
+                            <% if (player.volleyball) { %>
+                                <% let totalGames = player.volleyball.wins + player.volleyball.losses; %>
+                                <% let winPercent = totalGames > 0 ? ((player.volleyball.wins / totalGames) * 100).toFixed(2) : 0.00; %>
+                                <li class="innerlist">
+                                    Wins - <%= player.volleyball.wins %>,  
+                                    Losses - <%= player.volleyball.losses %>, 
+                                    Win Percentage - <%= winPercent %>%
+                                </li>
+                            <% } %>
+                        </ul>
+                    </li>
+                <% }); %>
+            </ul>           
+        </div>
+        <form action="/volleyball" method="POST">
+            <div class="form-group">
+                <label for="teamSize">Team Size:</label>
+                <select id="teamSize" name="teamSize" required onchange="updatePlayerDropdowns()">
+                    <option value="2">2v2</option>
+                    <option value="3">3v3</option>
+                    <option value="4">4v4</option>
+                </select>
+            </div>
+            <div class="form-group" id="team1Players">
+                <label>Team 1 Players:</label>
+            </div>
+            <div class="form-group" id="team2Players">
+                <label>Team 2 Players:</label>
+            </div>
+            <div class="form-group">
+                <label for="winner">Winning Team:</label>
+                <select id="winner" name="winner" required>
+                    <option value="team1">Team 1</option>
+                    <option value="team2">Team 2</option>
+                </select>
+            </div>
+            <button type="submit">Submit Game</button>
+        </form>
+        <script>
+            const players = <%- JSON.stringify(players) %>;
+function createPlayerDropdown(name) {
+    const select = document.createElement('select');
+    select.name = name;
+    select.required = true;
+    players.forEach(player => {
+        const option = document.createElement('option');
+        option.value = player.name;
+        option.text = player.name;
+        select.appendChild(option);
+    });
+    return select;
+}
+
+function updatePlayerDropdowns() {
+    const teamSize = document.getElementById('teamSize').value;
+    const team1Players = document.getElementById('team1Players');
+    const team2Players = document.getElementById('team2Players');
+    
+    team1Players.innerHTML = '<label>Team 1 Players:</label>';
+    team2Players.innerHTML = '<label>Team 2 Players:</label>';
+    
+    for (let i = 0; i < teamSize; i++) {
+        team1Players.appendChild(createPlayerDropdown(`team1Player${i+1}`));
+        team2Players.appendChild(createPlayerDropdown(`team2Player${i+1}`));
+    }
+}
+
+document.addEventListener('DOMContentLoaded', updatePlayerDropdowns);
+
+        </script>
+    </body>
+    </html>

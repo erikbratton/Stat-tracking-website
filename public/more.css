@@ -1,0 +1,282 @@
+/* Main heading styling */
+#main {
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6em;
+    color: aliceblue;
+    text-align: center;
+    padding: 100px;
+    background: linear-gradient(to bottom, #003866, #60a2a7, #dbe9f8);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Player section styling */
+.players {
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+    color: aliceblue;
+    text-align: center;
+}
+
+/* Common properties for images in various classes */
+.img, .eric > img, .matthew > img, .erik > img, .tommy > img, .ty .im1 {
+    width: 300px;
+    height: auto;
+    border-radius: 25px;
+    transition: transform ease 1s;
+}
+
+/* Hover effects for im2 and im3 in each player class */
+.eric:hover .im2, .matthew:hover .im2, .erik:hover .im2, .tommy:hover .im2 {
+    transform: translateX(-700px) rotate(-10deg);
+}
+
+.eric:hover .im3, .matthew:hover .im3, .erik:hover .im3, .tommy:hover .im3 {
+    transform: translateX(100px) rotate(10deg);
+}
+
+/* Specific hover effects for the ty class */
+.ty:hover .im2 {
+    transform: translateX(-670px) rotate(-10deg);
+}
+
+.ty:hover .im3 {
+    transform: translateX(100px) rotate(10deg);
+}
+
+/* Positioning and layering for im2 and im3 */
+.im2 {
+    z-index: -1;
+    position: absolute;
+    transform: translateX(-300px);
+    transition: transform ease 1s;
+    border-radius: 25px;
+}
+
+.im3 {
+    z-index: -2;
+    position: absolute;
+    transform: translateX(-300px);
+    transition: transform ease 1s;
+    border-radius: 25px;
+}
+
+/* Specific sizing for images in the ty class */
+.ty .im2, .ty .im3 {
+    width: 270px;
+    height: auto;
+    transition: transform ease 1s;
+}
+
+/* Container position for the eric class */
+.eric {
+    position: relative;
+}
+
+/* Global body styling */
+body {
+    margin: 0;
+    background: linear-gradient(#21476b, #96b8ca);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: "Freeman", sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Wrapper styling for header and navigation */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Unordered list in wrapper for navigation */
+.wrapper > ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 33px;
+}
+
+/* Navigation links inside the list */
+.wrapper ul li a {
+    margin-right: 20px;
+    color: aliceblue;
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: larger;
+    text-decoration: none;
+}
+
+/* Styling for the header link */
+.wrapper > h1 a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+/* Hover effect for navigation links */
+.wrapper ul li a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+    color: #96b8ca;
+}
+
+/* Header title styling */
+.wrapper > h1 {
+    align-items: flex-start;
+    margin-right: auto;
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 30px;
+    color: #ffffff;
+}
+
+/* General heading styles */
+.heading {
+    color: #ffffff;
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-size: 3em;
+    text-align: center;
+    margin: 20px;
+}
+
+/* Content wrapper styling for centering content */
+.content-wrapper {
+    width: 100%;
+    padding: 20px;
+}
+
+/* Container for lists */
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+/* Styling for unordered lists */
+ul, .list, .innerlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Main list item styling */
+.list {
+    color: #ffffff;
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-size: 1.5em;
+    margin-top: 50px;
+}
+
+/* Inner list styling for nested items */
+.innerlist {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* Form container styling */
+.create-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Form input and button layout */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Form group container */
+.form-group {
+    margin: 10px 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Container for inputs */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input and select styling */
+input, select {
+    padding: 8px;
+    margin: 3px auto;
+    box-sizing: content-box;
+}
+
+/* Button styling */
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+}
+
+/* Label styling for name input */
+#labelName {
+    color: #ffffff;
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Button label styling */
+#labelBut {
+    color: #000000;
+    font-family: "Freeman", sans-serif;
+    font-weight: 400;
+    font-size: 0.9em;
+}
+
+/* Fix horizontal scroll bar when unneeded */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Media queries to handle smaller screens */
+@media (max-width: 600px) {
+    .wrapper {
+        flex-direction: column; /* Adjust layout for smaller screens */
+    }
+    .heading {
+        font-size: 2em; /* Adjust font size for smaller screens */
+    }
+}
+
+
