@@ -8,7 +8,7 @@ The project leverages Node.js for server-side logic, EJS for rendering dynamic H
 
 Technologies Used: 
 Node.js for server-side development
-Expres to simplify server-side development
+Express to simplify server-side development
 MongoDB for database management
 JavaScript for dynamic frontend interactivity
 EJS (Embedded JavaScript) for rendering views
